@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 const makePlayer = () => ({
   name: "",
@@ -393,6 +394,7 @@ export default function QuizApp() {
   if (phase === "editor") {
     return (
       <div className="page min-h-screen">
+        <Analytics />
         <style>{STYLE}</style>
         <div className="max-w-3xl mx-auto px-6 py-10">
           <Header label="Édition" />
@@ -525,6 +527,7 @@ export default function QuizApp() {
     const p = players[playerIdx];
     return (
       <div className="page min-h-screen flex flex-col">
+        <Analytics />
         <style>{STYLE}</style>
         <div className="max-w-3xl mx-auto px-6 py-10 w-full">
           <Header label={`Joueur ${pad2(playerIdx + 1)} / 05`} />
@@ -555,6 +558,7 @@ export default function QuizApp() {
     const q = p.questions[qIdx];
     return (
       <div className="page min-h-screen flex flex-col">
+        <Analytics />
         <style>{STYLE}</style>
         <div className="max-w-3xl mx-auto px-6 py-10 w-full">
           <Header label={`${p.name} · Question ${qIdx + 1} / 02`} />
@@ -584,6 +588,7 @@ export default function QuizApp() {
     const won = playerOutcome === "won";
     return (
       <div className="page min-h-screen flex flex-col">
+        <Analytics />
         <style>{STYLE}</style>
         <div className="max-w-3xl mx-auto px-6 py-10 w-full">
           <Header label={`${p.name} · Résultat`} />
@@ -626,6 +631,7 @@ export default function QuizApp() {
   if (phase === "summary") {
     return (
       <div className="page min-h-screen">
+        <Analytics />
         <style>{STYLE}</style>
         <div className="max-w-2xl mx-auto px-6 py-10">
           <Header label="Résultats intermédiaires" />
@@ -671,6 +677,7 @@ export default function QuizApp() {
     const p = players[missed[bonusQueueIdx]];
     return (
       <div className="page-dark min-h-screen flex flex-col">
+        <Analytics />
         <style>{STYLE}</style>
         <div className="max-w-3xl mx-auto px-6 py-10 w-full">
           <div className="flex items-center justify-between mb-8">
@@ -701,6 +708,7 @@ export default function QuizApp() {
     const q = p.bonus;
     return (
       <div className="page-dark min-h-screen flex flex-col">
+        <Analytics />
         <style>{STYLE}</style>
         <div className="max-w-3xl mx-auto px-6 py-10 w-full">
           <div className="flex items-center justify-between mb-8">
@@ -734,6 +742,7 @@ export default function QuizApp() {
     const last = bonusQueueIdx >= missed.length - 1;
     return (
       <div className="page-dark min-h-screen flex flex-col">
+        <Analytics />
         <style>{STYLE}</style>
         <div className="max-w-3xl mx-auto px-6 py-10 w-full">
           <div className="flex items-center justify-between mb-8">
@@ -780,6 +789,7 @@ export default function QuizApp() {
     const fullMark = totalEarned === totalPossible;
     return (
       <div className="page min-h-screen">
+        <Analytics />
         <style>{STYLE}</style>
         <div className="max-w-2xl mx-auto px-6 py-10">
           <Header label="Score final" />
